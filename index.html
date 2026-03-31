@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonathan Aieriz Heaven | Portofolio Elegan</title>
+    
+    <!-- Font Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-dark: #050505;
+            --text-light: #f0f0f0;
+            --accent-gold: #d4af37;
+            --accent-gold-light: #f2d06b;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --transition: 0.4s ease-in-out;
+        }
+
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            text-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            transition: padding 0.3s;
+        }
+
+        header.scrolled {
+            padding: 15px 60px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            letter-spacing: 3px;
+            color: var(--accent-gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 40px;
+        }
+
+        nav ul li a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ccc;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+            text-shadow: 0 0 10px var(--accent-gold);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -6px;
+            left: 0;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-gold-light));
+            transition: width var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION with Parallax & Particles --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 30px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23d4af37" opacity="0.1"/><circle cx="20" cy="30" r="0.5" fill="%23f2d06b" opacity="0.05"/><circle cx="80" cy="70" r="0.8" fill="%23d4af37" opacity="0.08"/></svg>') repeat;
+            animation: particles 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes particles {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero h2 {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1s;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #999;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.5s;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            background: transparent;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 2s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-gold-light));
+            color: #000;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- SECTION GENERAL --- */
+        section {
+            padding: 120px 30px;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 80px;
+            color: var(--text-light);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title span {
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 15px;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-box {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .skill-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        .skill-percent {
+            color: var(--accent-gold);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 5px;
+            background: #222;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light));
+            width: 0;
+            transition: width 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 0 10px var(--accent-gold);
+        }
+
+        /* --- WORKS SECTION --- */
+        .works-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .work-card {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            padding: 50px 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .work-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .work-card i {
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .work-card:hover i {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .work-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .work-card p {
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .work-link {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--accent-gold);
+            padding-bottom: 8px;
+            transition: var(--transition);
+        }
+
+        .work-link:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold-light);
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-section {
+            background: linear-gradient(to bottom, #0a0a0a, #050505);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #0f0f0f;
+            padding: 40px 30px;
+            border-left: 4px solid var(--accent-gold);
+            position: relative;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .testimonial-card i {
+            color: #222;
+            font-size: 2rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #ddd;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .client-name {
+            font-size: 0.9rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 80px 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            background: #000;
+        }
+
+        .social-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            color: var(--accent-gold-light);
+            text-shadow: 0 0 15px var(--accent-gold);
+        }
+
+        footer p {
+            color: #666;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        footer span {
+            color: var(--accent-gold);
+        }
+
+        /* --- RESPONSIVE & MOBILE MENU --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            header { padding: 20px; }
+            nav ul { 
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(5, 5, 5, 0.95);
+                padding: 20px;
+            }
+            nav ul.active { display: flex; }
+            nav ul li { margin: 10px 0; text-align: center; }
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+                color: var(--accent-gold);
+                font-size: 1.5rem;
+            }
+            .works-container, .testimonials-container { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 769px) {
+            .menu-toggle { display: none; }
+        }
+	/* --- ABOUT SECTION --- */
+#about {
+    background: linear-gradient(to bottom, #050505, #0a0a0a);
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.about-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+.about-content {
+    flex: 2;
+    color: #ddd;
+}
+
+.about-content h3 {
+    font-size: 2.2rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.about-details {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.about-details li {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.about-details li::before {
+    content: '\f058'; /* Ikon check dari Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent-gold);
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-image {
+        max-width: 100%;
+        margin-bottom: 30px;
+    }
+}
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    opacity: 1; /* Ubah ke 1 agar selalu muncul */
+    transform: translateY(0); /* Hilangkan transform awal */
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+.about-container:not(.visible) {
+    opacity: 0; /* Hanya terapkan opacity 0 jika belum visible */
+    transform: translateY(50px);
+}
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">L.T.H.</div>
+        <nav>
+            <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Tentang</a></li>  <!-- Tambahkan ini -->
+    <li><a href="#skills">Keahlian</a></li>
+    <li><a href="#works">Karya</a></li>
+    <li><a href="#testimonials">Testimoni</a></li>
+    <li><a href="#contact">Kontak</a></li>
+</ul>
+        </nav>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Visual Maestro</h2>
+        <h1>Leonathan Aieriz Heaven</h1>
+        <p>Menangkap esensi kehidupan melalui lensa yang presisi, menciptakan karya yang timeless dan penuh inspirasi.</p>
+        <a href="#works" class="btn">Jelajahi Karya</a>
+    </section>
+<!-- About Section -->
+<section id="about">
+    <h2 class="section-title"><span>Tentang Saya</span></h2>
+    <div class="about-container">
+        <div class="about-image">
+            <!-- Gambar direct dari ImgBB (URL yang benar) -->
+            <img src="https://i.ibb.co/WNh15bCx/leo.jpg" 
+                 alt="Leonathan Aieriz Heaven sedang merekam dengan kamera profesional di acara malam" 
+                 style="border-radius: 10px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); width: 100%; height: auto; transition: transform 0.3s;"
+                 onerror="this.src='https://via.placeholder.com/300x400?text=Gambar+Leonathan';"> <!-- Fallback jika gagal load -->
+        </div>
+        <div class="about-content">
+            <h3>Leonathan Aieriz Heaven</h3>
+            <p>Saya adalah seorang visual artist muda yang passionate dalam bidang fotografi, videografi, dan desain grafis. Dengan latar belakang kreatif, saya berusaha menciptakan karya yang tidak hanya indah secara visual, tapi juga mampu menyampaikan cerita mendalam.</p>
+            <ul class="about-details">
+                <li><strong>Tempat & Tanggal Lahir:</strong> Mojokerto, 21 Agustus 2007</li>
+                <li><strong>Sekolah:</strong> SMA Annur Bululawang Malang</li>
+                <li><strong>Tempat Tinggal Saat Ini:</strong> Sidoarjo, Jawa Timur</li>
+            </ul>
+            <p>Saya terus mengasah kemampuan saya untuk menghasilkan konten berkualitas tinggi, terinspirasi dari keindahan alam dan kehidupan sehari-hari di Jawa Timur.</p>
+        </div>
+    </div>
+</section>    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title"><span>Keahlian Profesional</span></h2>
+        <div class="skills-container">
+            <!-- Videografi 80% -->
+            <div class="skill-box">
+                <div class="skill-info">
+                    <span class="skill-name">Videografi</span>
+                    <span class="skill-percent">80%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-width="80%"></div>
+                </div>
+            </div>
+
+            <!-- Fotografi 90% -->
+            <div class="skill-box">
+                <div class="skill-info">
+                    <span class="skill-name">Fotografi</span>
+                    <span class="skill-percent">90%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-width="90%"></div>
+                </div>
+            </div>
+
+            <!-- Desain 60% -->
+            <div class="skill-box">
+                <div class="skill-info">
+                    <span class="skill-name">Desain Grafis</span>
+                    <span class="skill-percent">60%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" data-width="60%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <h2 class="section-title"><span>Karya Pilihan</span></h2>
+        <div class="works-container">
+            <!-- Glorious21 -->
+            <div class="work-card">
+                <i class="fas fa-video"></i>
+                <h3>Glorious 21</h3>
+                <p>Koleksi videografi dan fotografi yang dinamis, menampilkan momen-momen epik.</p>
+                                <a href="https://www.instagram.com/glorious21__/" class="work-link" target="_blank">Kunjungi Galeri</a>
+            </div>
+
+            <!-- Maristha Creative -->
+            <div class="work-card">
+                <i class="fas fa-camera"></i>
+                <h3>Maristha Creative</h3>
+                <p>Portofolio desain dan visual kreatif yang inovatif dan estetis.</p>
+                <a href="https://www.instagram.com/maristha.creative/" class="work-link" target="_blank">Kunjungi Galeri</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2 class="section-title"><span>Testimoni Klien</span></h2>
+        <div class="testimonials-container">
+            <!-- Testimoni 1 -->
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right"></i>
+                <p class="testimonial-text">"Hasil fotografi Leonathan sungguh memukau, menangkap emosi dengan sempurna dan detail yang tajam."</p>
+                <span class="client-name">Anna S. - Klien Event</span>
+            </div>
+
+            <!-- Testimoni 2 -->
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right"></i>
+                <p class="testimonial-text">"Videografinya sangat profesional, editing yang halus membuat cerita kami hidup kembali."</p>
+                <span class="client-name">David R. - Produser Film</span>
+            </div>
+
+            <!-- Testimoni 3 -->
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right"></i>
+                <p class="testimonial-text">"Desain grafisnya kreatif dan sesuai visi, sangat direkomendasikan untuk proyek visual."</p>
+                <span class="client-name">Maria L. - Desainer Brand</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <a href="https://www.instagram.com/leonaaristha/" class="social-btn" target="_blank"><i class="fab fa-instagram"></i></a>
+        <p>&copy; 2026 Leonathan Aieriz Heaven. All Rights Reserved.</p>
+        <p>Created by <span>Muhammad Nabil Al Ma'ruf</span></p>
+    </footer>
+
+    <!-- JavaScript untuk Animasi -->
+<script>
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('active');
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll Reveal for Sections (Tambahkan .about-container di sini)
+    const revealElements = document.querySelectorAll('.section-title, .skill-box, .work-card, .testimonial-card, .about-container'); // Tambahkan .about-container
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Animate progress bars when visible
+                if (entry.target.classList.contains('skill-box')) {
+                    const fill = entry.target.querySelector('.progress-bar-fill');
+                    fill.style.width = fill.getAttribute('data-width');
+                }
+                // Optional: Unobserve setelah terlihat untuk performa
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 }); // Threshold rendah agar trigger lebih cepat
+
+    revealElements.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
